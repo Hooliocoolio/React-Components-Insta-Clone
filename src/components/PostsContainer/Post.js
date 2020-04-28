@@ -1,25 +1,39 @@
 // You will add code in this file
 
+import React, { useState } from "react";
+import CommentSection from "../CommentSection/CommentSectionContainer";
+import LikeSection from "./LikeSection";
+import PostHeader from "./PostHeader";
 
-import React, { useState } from 'react';
-import CommentSection from '../CommentSection/CommentSectionContainer';
-import LikeSection from './LikeSection';
-import PostHeader from './PostHeader';
+import "./Posts.css";
 
-import './Posts.css';
-
-const Post = ({ post }) => {
-  // console.log(post);
+const Post = props => {
   // set up state for the likes
-  const [postlikes, setPostLikes] = useState(post.likes);
+
+  const [numberOfLikes, setNumberOfLikes] = useState(0);
+  console.log(numberOfLikes);
+
+  function likePlusOne() {
+    setNumberOfLikes(numberOfLikes + 1);
+  }
   return (
-    <div className='post-border'>
-      <PostHeader username={post.username} thumbnailUrl={post.thumbnailUrl} />
-      <div className='post-image-wrapper'>
-        <img alt='post thumbnail' className='post-image' src={post.imageUrl} />
+    <div className="post-border">
+      <PostHeader
+        username={props.post.username}
+        thumbnailUrl={props.post.thumbnailUrl}
+      />
+      <div className="post-image-wrapper">
+        <img
+          alt="post thumbnail"
+          className="post-image"
+          src={props.post.imageUrl}
+        />
       </div>
-      <LikeSection postlikes={postlikes} setPostLikes={setPostLikes} />
-      <CommentSection postId={post.imageUrl} comments={post.comments} />
+      <LikeSection numberOfLikes={numberOfLikes} likeFunc={likePlusOne} />
+      <CommentSection
+        postId={props.post.imageUrl}
+        comments={props.post.comments}
+      />
     </div>
   );
 };
