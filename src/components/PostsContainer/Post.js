@@ -4,17 +4,17 @@ import React, { useState } from "react";
 import CommentSection from "../CommentSection/CommentSectionContainer";
 import LikeSection from "./LikeSection";
 import PostHeader from "./PostHeader";
-
 import "./Posts.css";
 
-const Post = props => {
+const Post = (props) => {
   // set up state for the likes
 
-  const [numberOfLikes, setNumberOfLikes] = useState(0);
-  console.log(numberOfLikes);
+  const [likes, setLikesValue] = useState(0);
+  console.log(likes);
 
-  function likePlusOne() {
-    setNumberOfLikes(numberOfLikes + 1);
+  function LikeFunc() {
+
+    setLikesValue(props.likes + 1);
   }
   return (
     <div className="post-border">
@@ -29,7 +29,7 @@ const Post = props => {
           src={props.post.imageUrl}
         />
       </div>
-      <LikeSection numberOfLikes={numberOfLikes} likeFunc={likePlusOne} />
+      <LikeSection likes={props.post.likes} likeFunc={LikeFunc} />
       <CommentSection
         postId={props.post.imageUrl}
         comments={props.post.comments}

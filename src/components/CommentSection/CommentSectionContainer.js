@@ -17,7 +17,6 @@ const CommentSection = props => {
     </div>
   );
 };
-//Done
 
 
 export default CommentSection;
