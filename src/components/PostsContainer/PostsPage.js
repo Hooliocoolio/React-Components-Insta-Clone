@@ -2,13 +2,17 @@
 //Complete the necessary code in this file
 // import useState
 import React, { useState } from "react";
+// WE IMPORT THE POST COMPONENT FROM THE POST FILE
 import Post from "./Post";
 import "./Posts.css";
 import dummyData from '../../dummy-data';
 
+//THIS IS THE POSTSPAGE COMPONENT 
 const PostsPage = () => {
+  // WE CREATE A STATE OF THE DATA
   const [state] = useState(dummyData)
-  console.log(state)
+
+  // console.log(state)
   return (
     <div className="posts-container-wrapper">
 

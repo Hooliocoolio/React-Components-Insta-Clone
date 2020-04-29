@@ -8,13 +8,12 @@ import "./Posts.css";
 
 const Post = (props) => {
   // set up state for the likes
+  const [likes, setLikes] = useState(props.likes);
 
-  const [likes, setLikesValue] = useState(0);
-  console.log(likes);
+  //console.log(likes);
 
-  function LikeFunc() {
-
-    setLikesValue(props.likes + 1);
+  const LikeFunc = () => {
+    setLikes(likes + 1);
   }
   return (
     <div className="post-border">
@@ -37,5 +36,5 @@ const Post = (props) => {
     </div>
   );
 };
-
+// THIS COMPONENT WILL BE EXPORTED TO THE POSTSPAGE.JS FILE
 export default Post;
